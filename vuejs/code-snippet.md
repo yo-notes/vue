@@ -92,3 +92,28 @@ export function isNative (Ctor: any): boolean {
   return typeof Ctor === 'function' && /native code/.test(Ctor.toString())
 }
 ```
+
+* 兼容 IE9-11 中SVG没有 innerHTML/outerHTML 的问题
+
+```js
+function getOuterHTML (el: Element): string {
+  if (el.outerHTML) {
+    return el.outerHTML
+  } else { // 将 svg 节点放到 div里，然后获取 div 节点的 innerHTML
+    const container = document.createElement('div')
+    container.appendChild(el.cloneNode(true))
+    return container.innerHTML
+  }
+}
+```
+
+
+## 其它基础知识
+
+```js
+function test(...arg) {
+  // ...
+}
+
+test(23); // arg is [23]
+```

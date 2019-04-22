@@ -1,9 +1,31 @@
 new Vue({
-  template: `<div>{{msg}}</div>`,
+  template: `<div>{{arr}}{{aComputed}}</div>`,
   el: '#app',
-  data () {
-    return {
-      msg: 'hi~'
+  props: {
+    aProp: {
+      type: String
     }
+  },
+  computed: {
+    aComputed() {
+      return this.aProp + 'a computed value'
+    }
+  },
+  data() {
+    return {
+      obj: {
+        name: 'data: object',
+        children: []
+      },
+      arr: [{ a: 1 }]
+    };
+  },
+  methods: {
+    onDebug() {
+      console.log('method: debug');
+    }
+  },
+  beforeCreate() {
+    console.log('hook: beforeCreate');
   }
-})
+});
