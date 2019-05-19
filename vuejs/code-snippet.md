@@ -38,7 +38,7 @@ Vue.prototype.$on = function (event: string | Array<string>, fn: Function): Comp
 }
 ```
 
-* 正则
+## 正则
 
 ```js
 val = cached(fn) // function fn(key) { return value }
