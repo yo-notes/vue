@@ -1,0 +1,15 @@
+<div id="app">
+    <input type="text" v-model="message.input">
+    <div>Input is: {{message.input}}, Tail: {{tail}}</div>
+</div>
+<script src="mvvm.js"  type="module"></script>
+<script type="module">
+  import { MVVM } from './mvvm.js'
+  let vm = new MVVM({
+    el:'#app',
+    data:{
+      message: { input: 'default' },
+      tail: 'MVVM'
+    }
+  })
+</script>
